@@ -6,7 +6,7 @@ class Pizza:
     def __init__(self, name, dough: Dough, topping_capacity):
         self.name = name
         self.dough = dough
-        self.topping_capacity = topping_capacity
+        self.toppings_capacity = topping_capacity
         self.toppings = {}  # {topping_type: weight}
 
     @property
@@ -30,17 +30,17 @@ class Pizza:
         self.__dough = value
 
     @property
-    def topping_capacity(self):
+    def toppings_capacity(self):
         return self.__topping_capacity
 
-    @topping_capacity.setter
-    def topping_capacity(self, value):
+    @toppings_capacity.setter
+    def toppings_capacity(self, value):
         if value <= 0:
             raise ValueError("The topping's capacity cannot be less or equal to zero")
         self.__topping_capacity = value
 
     def add_topping(self, topping: Topping):
-        if len(self.toppings) == self.topping_capacity:
+        if len(self.toppings) == self.toppings_capacity:
             raise ValueError("Not enough space for another topping")
 
         if topping.topping_type not in self.toppings:

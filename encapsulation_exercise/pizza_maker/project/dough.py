@@ -26,7 +26,7 @@ class Dough:
 
     @property
     def weight(self):
-        return
+        return self.__weight
 
     @weight.setter
     def weight(self, value):
