@@ -1,3 +1,26 @@
+"""For loop fibonacci"""
+
+
+def fib(n):
+    a = 1
+    b = 1
+    if n == 1:
+        print(a)
+    else:
+        print(a)
+        print(b)
+        for i in range(2, n):
+            c = a + b
+            a, b = b, c
+            print(c)
+
+
+fib(7)
+
+
+"""Recursion fibonacci"""
+
+
 def fibonacci(n):
     if n < 0:
         return "'n' must be a positive number"
@@ -14,3 +37,5 @@ def fibonacci(n):
 
 for num in range(1, 8):
     print(fibonacci(num))
+
+
