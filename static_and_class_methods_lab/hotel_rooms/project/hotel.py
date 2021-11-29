@@ -27,11 +27,13 @@ class Hotel:
 
     def free_room(self, room_number):
         for room in self.rooms:
-            if room.number == room_number:
-                if room.is_taken:
-                    room.is_taken = False
-                    self.guests -= room.guests
-                    room.guests = 0
+            if (
+                    room.number == room_number and
+                    room.is_taken
+            ):
+                room.is_taken = False
+                self.guests -= room.guests
+                room.guests = 0
 
     def status(self):
         return f"""Hotel {self.name} has {self.guests} total guests
