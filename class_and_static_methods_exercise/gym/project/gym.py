@@ -48,7 +48,8 @@ class Gym:
 
         return result
 
-    def __get_obj_by_id(self, objects, obj_id):
+    @staticmethod
+    def __get_obj_by_id(objects, obj_id):
         for obj in objects:
             if obj.id == obj_id:
                 return obj
