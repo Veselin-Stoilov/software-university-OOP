@@ -63,14 +63,17 @@ class Controller:
 
         if driver.car is not None:
             old_car = driver.car
+            old_car.is_taken = False
+            new_car.is_taken = True
+            driver.car = new_car
             return f"Driver {driver.name} changed his car from {old_car.model} to {new_car.model}."
-
+        new_car.is_taken = True
         driver.car = new_car
         return f"Driver {driver.name} chose the car {new_car.model}."
 
     def find_last_car_of_type(self, car_type, cars):  # returns the car of the given type
         for car in cars[::-1]:
-            if car.__class__.__name__ == car_type:
+            if car.__class__.__name__ == car_type and not car.is_taken:
                 return car
         return None
 
@@ -94,7 +97,22 @@ class Controller:
         return f"Driver {driver_name} added in {race_name} race."
 
     def start_race(self, race_name: str):
-        pass
+        race = self.find_obj_by_name(race_name, self.races)
+        if race is None:
+            raise Exception(f"Race {race_name} could not be found!")
+
+        if len(race.drivers) < 3:
+            raise Exception(f"Race {race_name} cannot start with less than 3 participants!")
+
+        winners = sorted(race.drivers, key=lambda k: k.car.speed_limit, reverse=True)[:3]
+        result = ''
+        for d in winners:
+            d.number_of_wins += 1
+            result += f"Driver {d.name} wins the {race_name} race with a speed of {d.car.speed_limit}.\n"
+
+        return result.strip()
+
+
 
 
 

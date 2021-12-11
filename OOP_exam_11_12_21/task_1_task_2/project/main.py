@@ -19,6 +19,9 @@ print(controller.add_driver_to_race("Christmas Top Racers", "John"))
 print(controller.add_driver_to_race("Christmas Top Racers", "Jack"))
 print(controller.add_driver_to_race("Christmas Top Racers", "Kelly"))
 print(controller.add_driver_to_race("Christmas Top Racers", "Peter"))
+
 print(controller.start_race("Christmas Top Racers"))
+
+
 [print(d.name, d.number_of_wins) for d in controller.drivers]
 
