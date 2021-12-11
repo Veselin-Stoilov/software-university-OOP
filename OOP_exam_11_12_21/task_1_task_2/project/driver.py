@@ -1,5 +1,5 @@
 class Driver:
-    def __init__(self, name):  # TODO maybe the car should be given upon initialization
+    def __init__(self, name):
         self.name = name
         self.car = None  # OBJECT
         self.number_of_wins = 0

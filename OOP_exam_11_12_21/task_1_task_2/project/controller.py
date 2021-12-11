@@ -1,4 +1,3 @@
-# from OOP_exam_11_12_21.task_1_task_2.project.race import Race
 from OOP_exam_11_12_21.task_1_task_2.project.car.muscle_car import MuscleCar
 from OOP_exam_11_12_21.task_1_task_2.project.car.sports_car import SportsCar
 from OOP_exam_11_12_21.task_1_task_2.project.driver import Driver
@@ -6,7 +5,7 @@ from OOP_exam_11_12_21.task_1_task_2.project.race import Race
 
 
 class Controller:
-    def __init__(self):  # TODO may be some of the attributes should be assigned to other classes
+    def __init__(self):
         self.cars = []  # add all cars as OBJECTS
         self.drivers = []  # add all drives as OBJECTS
         self.races = []  # add all races as OBJECTS
